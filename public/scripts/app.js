@@ -107,6 +107,12 @@ $(document).ready(function() {
     }
   });
 
+  //CLICK HANDLER FOR TOGGLE
+  $(".toggle").click(function() {
+    $(".new-tweet").slideToggle(1000);
+  });
+
+
 
 
 });

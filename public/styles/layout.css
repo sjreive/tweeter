@@ -34,3 +34,8 @@ main {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+ #tweets-container {
+   padding-top: 40 px;
+   border-style: dotted;
+ }
+
