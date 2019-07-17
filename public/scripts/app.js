@@ -25,6 +25,7 @@ $(document).ready(function() {
     };
 
     loadTweets();
+    const timeNow = new Date();
 
   //Escape function to prevent cross-site scripting
   const escape = function(tweet) {
@@ -33,14 +34,29 @@ $(document).ready(function() {
     return div.innerHTML;
   };
   
+  //Function to display amount of time since tweet was created
+  const timeSinceTweeted = function (tweet) {
+    const timeSince = timeNow - tweet.created_at;
+    const timeSinceDays = timeSince / (1000 * 3600 * 24);
+    let timeString = "";
+    if (timeSinceDays > 365) {
+      timeString = 'Over a year ago.'; 
+    } else if (timeSinceDays === 365) {
+      timeString = 'One year ago';
+    } else if (timeSinceDays < 365 && timeSinceDays >= 1) {
+      timeString = `${timeSinceDays} days ago`;
+    } else {
+      timeString = 'Less than 24 hours ago';
+    }
+    return timeString
+  }
+  
+  
+  
   // Function to create Tweet Element
   const createTweetElement = function(tweet) {
     
-    //Formatting Timestamp (COME BACK TO THIS);
-    // const now = new Date;
-    // const date = tweet.created_at.getDate();
-    // const month = tweet.created_at.getMonth();
-    // const year = tweet.created_at.getFullYear();
+    const time = timeSinceTweeted(tweet);
 
     const returnTweet = `
       <article class="tweet">
@@ -54,7 +70,7 @@ $(document).ready(function() {
         <div class= "tweet-content">${escape(tweet.content.text)}</div>
         <hr>
         <footer class="tweet-footer">
-         <div class="date-posted">${tweet.created_at}</div>
+         <div class="date-posted">${time}</div>
           <div class="tweet-icons">
             <i class="fab fa-font-awesome-flag"></i>
             <i class="fas fa-sync-alt"></i>
