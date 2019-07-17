@@ -59,7 +59,7 @@ $(document).ready(function() {
     console.log(tweet);
     if (tweet === "text=") {
       const errMsg = "Error! Tweet field cannot be empty.";
-      $(".err-msg").slideToggle(500)
+      $(".err-msg").slideDown(500)
         .html(`<i class="fa fa-times-circle"></i>&nbsp&nbsp&nbsp${errMsg}`);
     } else if (tweet.length > 145) {
       const errMsg = "ERROR: Your Tweet exceeds the character limit.";
@@ -67,7 +67,6 @@ $(document).ready(function() {
         .html(`<i class="fa fa-times-circle"></i>&nbsp&nbsp&nbsp${errMsg}`);
       throw "Error!";
     } else {
-      $(".err-msg").slideToggle(500);
       return true;
     }
   };
@@ -77,8 +76,7 @@ $(document).ready(function() {
     $(".new-tweet").slideToggle(1000);
   });
   
-  
-  
+
   // Function to fetch tweets from the /tweets page
   const loadTweets = function() {
     $.ajax('/tweets',{method: 'GET'})
@@ -94,11 +92,11 @@ $(document).ready(function() {
     $(this).find(".user-handle").css("visibility","hidden");
   });
 
-
   // POST REQUEST TO SUBMIT TWEETS
   $(".tweet-post").on('submit', function(event) {
     event.preventDefault();  // prevents traditional POST request
     console.log("clicked! Performing AJAX call", event);
+    $(".err-msg").slideUp(500);
     const postBody = $(this).serialize();
     console.log(postBody);
     if (isTweetValid(postBody)) {
