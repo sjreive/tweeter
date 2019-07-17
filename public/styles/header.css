@@ -1,5 +1,6 @@
 header.main-header {
   margin-top: 115px; /* Find a better way to do this*/
+  margin-bottom: 20px;
   height: 400px;
   width: 100%;
   order: 1; /*for flexbox col flex direction*/

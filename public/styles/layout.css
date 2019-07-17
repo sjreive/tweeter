@@ -27,15 +27,11 @@ main {
   order: 10; /*for flexbox col flex direction*/
   width: 90%;
   margin: 0 auto;
-  border: dotted;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- #tweets-container {
-   padding-top: 40 px;
-   border-style: dotted;
- }
+
 

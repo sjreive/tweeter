@@ -28,6 +28,7 @@ nav {
  nav button {
   color: #e6d814;
   background-color: Transparent;
+  outline: none;
   border: none;
   height: 25px;
   width: 25px;
