@@ -11,9 +11,20 @@ $(document).ready(function() {
     let $tweetsContainer = $('#tweets-container');
     for (let tweet of tweets) {
       let $tweet = createTweetElement(tweet);
-      $tweetsContainer.append($tweet);
+      $tweetsContainer.prepend($tweet);
     }
   };
+
+    // Function to fetch tweets from the /tweets page
+    const loadTweets = function() {
+      $.ajax('/tweets',{method: 'GET'})
+        .then(function (tweets) {
+          $("#tweets-container").empty();
+          renderTweets(tweets);
+        });
+    };
+
+    loadTweets();
 
   //Escape function to prevent cross-site scripting
   const escape = function(tweet) {
@@ -76,14 +87,6 @@ $(document).ready(function() {
     $(".new-tweet").slideToggle(1000);
   });
   
-
-  // Function to fetch tweets from the /tweets page
-  const loadTweets = function() {
-    $.ajax('/tweets',{method: 'GET'})
-      .then(function (tweets) {
-        renderTweets(tweets);
-      });
-  };
 
   // jQuery used to change visibility of user handler during when hovering over a tweet.
   $(".tweet").hover(function() {
