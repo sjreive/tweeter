@@ -29,6 +29,11 @@ const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 // Mount the tweets routes at the "/tweets" path prefix:
 app.use("/tweets", tweetsRoutes);
 
+// End Point for posting tweets
+app.post("/tweets", (req, res) => {
+  res.redirect("/");
+});
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });

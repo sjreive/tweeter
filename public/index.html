@@ -6,26 +6,75 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> <!--Font Awesome Icons-->
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
+    <nav>  
+      <span class ="inner-nav">
+          <p class= "nav-element" id= "title">TWEETER</p>
+          <div class= "nav-element">
+            <div class= "nav-subtitle"><strong>Write</strong> a new tweet</div>
+            <div class= "nav-buttons">
+                <div class="toggle-arrow">
+                  <button>
+                    <i class="fas fa-angle-double-down"></i>
+                  </button>    
+                </div>
+            </div>
+        </div>
+      </span>
     </nav>
 
+    <!-- Header content here -->
+    <header class= "main-header">
+      <div class ="inner-header">
+       <div class = "prfl-pht-container">
+        <div class="profile-photo">
+          <img src="/images/profile-hex.png"> 
+        </div>
+      </div>
+        <div>
+          <h2>Your Name</h2>
+        </div>
+        </div>  
+      </header>
+
     <!-- Page-specific (main) content here -->
+    
     <main class="container">
+        
+      <!-- Tweet Form -->
+      <section class="new-tweet">
+            <h2>Compose Tweet</h2>
+            <form class="tweet-post" action="/tweets" method="POST">
+              <input name="text" class="tweet-form" type =text;  placeholder="What are you humming about?">
+              <div class= "tweet-submit">
+                <input class= "button" type="submit" value="Tweet">
+                <span class="counter">140</span>
+              </div>
+            </form>
+          </section>
+           
+        <!-- Tweets -->
+          <section id= "tweets-container">
+        </section> 
     </main>
 
   </body>

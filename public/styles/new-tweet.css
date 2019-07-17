@@ -1,0 +1,29 @@
+
+section.new-tweet{
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.tweet-form {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid navy;
+  background-color: #f4f1ec; /* See if theres a way to make it inherit this from body */
+}
+
+
+.tweet-submit{
+  margin-top: 15px;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Bungee', cursive;
+  font-size: 18px;
+}
+
+.button {
+  background-color: navy;
+  color: #FFFFFF;
+};

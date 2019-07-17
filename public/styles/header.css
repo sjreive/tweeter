@@ -1,0 +1,20 @@
+header.main-header {
+  margin-top: 115px; /* Find a better way to do this*/
+  height: 400px;
+  width: 100%;
+  order: 1; /*for flexbox col flex direction*/
+  z-index: -1;
+  background-color: #e6d814;
+  background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
+}
+
+.profile-photo {
+  position: relative;
+  width: 270px;
+  margin: 0 auto;
+}
+
+
+h2 {
+  text-align: center;
+}
