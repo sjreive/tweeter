@@ -16,7 +16,6 @@ $(document).ready(function() {
   };
 
   //Escape function to prevent cross-site scripting
-
   const escape = function(tweet) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(tweet));
@@ -57,15 +56,26 @@ $(document).ready(function() {
  
   //Function to validate user tweet input
   const isTweetValid = function(tweet) {
-    if (tweet === "") {
-      alert("Error! Tweet field is empty");
+    console.log(tweet);
+    if (tweet === "text=") {
+      const errMsg = "Error! Tweet field cannot be empty.";
+      $(".err-msg").slideToggle(500)
+        .html(`<i class="fa fa-times-circle"></i>&nbsp&nbsp&nbsp${errMsg}`);
+    } else if (tweet.length > 145) {
+      const errMsg = "ERROR: Your Tweet exceeds the character limit.";
+      $(".err-msg").slideToggle(500)
+        .html(`<i class="fa fa-times-circle"></i>&nbsp&nbsp&nbsp${errMsg}`);
       throw "Error!";
-    } else if (tweet.length > 140) {
-      alert("Error! Tweet is too long");
-      throw "Error!";
+    } else {
+      $(".err-msg").slideToggle(500);
+      return true;
     }
-    return true;
-  }
+  };
+
+  //CLICK HANDLER FOR NAV BAR TOGGLE
+  $(".toggle").click(function() {
+    $(".new-tweet").slideToggle(1000);
+  });
   
   
   
@@ -84,11 +94,13 @@ $(document).ready(function() {
     $(this).find(".user-handle").css("visibility","hidden");
   });
 
+
   // POST REQUEST TO SUBMIT TWEETS
   $(".tweet-post").on('submit', function(event) {
     event.preventDefault();  // prevents traditional POST request
     console.log("clicked! Performing AJAX call", event);
     const postBody = $(this).serialize();
+    console.log(postBody);
     if (isTweetValid(postBody)) {
     //AJAX request
       $.ajax({
@@ -107,10 +119,7 @@ $(document).ready(function() {
     }
   });
 
-  //CLICK HANDLER FOR TOGGLE
-  $(".toggle").click(function() {
-    $(".new-tweet").slideToggle(1000);
-  });
+
 
 
 

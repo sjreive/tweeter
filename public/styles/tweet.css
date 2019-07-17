@@ -54,6 +54,7 @@ hr {
   font-size: 14pt;
   font-weight: 500;
   margin-bottom: 25px;
+  overflow-wrap: break-word;
 }
 
 article.tweet footer {
