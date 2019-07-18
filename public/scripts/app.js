@@ -6,6 +6,7 @@
  */
 
 $(document).ready(function() {
+  
   //Function to pull tweets from "database" and append them to the tweet container
   const renderTweets = function(tweets) {
     let $tweetsContainer = $('#tweets-container');
@@ -15,17 +16,17 @@ $(document).ready(function() {
     }
   };
 
-    // Function to fetch tweets from the /tweets page
-    const loadTweets = function() {
-      $.ajax('/tweets',{method: 'GET'})
-        .then(function (tweets) {
-          $("#tweets-container").empty();
-          renderTweets(tweets);
-        });
-    };
+  // Function to fetch tweets from the /tweets page
+  const loadTweets = function() {
+    $.ajax('/tweets',{method: 'GET'})
+      .then(function (tweets) {
+        $("#tweets-container").empty();
+        renderTweets(tweets);
+      });
+  };
 
-    loadTweets();
-    const timeNow = new Date();
+  loadTweets();
+  const timeNow = new Date();
 
   //Escape function to prevent cross-site scripting
   const escape = function(tweet) {
@@ -40,7 +41,7 @@ $(document).ready(function() {
     const timeSinceDays = timeSince / (1000 * 3600 * 24);
     let timeString = "";
     if (timeSinceDays > 365) {
-      timeString = 'Over a year ago.'; 
+      timeString = 'Over a year ago.';
     } else if (timeSinceDays === 365) {
       timeString = 'One year ago';
     } else if (timeSinceDays < 365 && timeSinceDays >= 1) {
@@ -48,8 +49,8 @@ $(document).ready(function() {
     } else {
       timeString = 'Less than 24 hours ago';
     }
-    return timeString
-  }
+    return timeString;
+  };
   
   
   
@@ -81,18 +82,29 @@ $(document).ready(function() {
     return returnTweet;
   };
  
+  
+  //Function to return error messages
+  const returnErrMessage = function(errMsg) {
+    const $errMsg = $(".err-msg"); // So we only have to go searching once in the DOM
+    $errMsg.slideUp(100, function() {
+      $errMsg.slideDown(300);
+      return $errMsg.html(`<i class="fa fa-times-circle"></i>&nbsp&nbsp&nbsp${errMsg}`);
+    });
+  };
+
+  
+  
   //Function to validate user tweet input
   const isTweetValid = function(tweet) {
-    console.log(tweet);
+    
+    // Check if tweet field is empty
     if (tweet === "text=") {
       const errMsg = "Error! Tweet field cannot be empty.";
-      $(".err-msg").slideDown(500)
-        .html(`<i class="fa fa-times-circle"></i>&nbsp&nbsp&nbsp${errMsg}`);
+      returnErrMessage(errMsg);
+    // Check if tweet field is too long (145 = 140 chars allowed + "text=");   
     } else if (tweet.length > 145) {
-      const errMsg = "ERROR: Your Tweet exceeds the character limit.";
-      $(".err-msg").slideToggle(500)
-        .html(`<i class="fa fa-times-circle"></i>&nbsp&nbsp&nbsp${errMsg}`);
-      throw "Error!";
+      const errMsg = "Error! Your Tweet exceeds the character limit.";
+      returnErrMessage(errMsg);
     } else {
       return true;
     }
@@ -106,18 +118,16 @@ $(document).ready(function() {
 
   // jQuery used to change visibility of user handler during when hovering over a tweet.
   $(".tweet").hover(function() {
-    $(this).find(".user-handle").css("visibility","visible");
-  }, function() {
-    $(this).find(".user-handle").css("visibility","hidden");
-  });
+      $(this).find(".user-handle").css("visibility","visible");
+    }, function() {
+      $(this).find(".user-handle").css("visibility","hidden");
+    });
 
   // POST REQUEST TO SUBMIT TWEETS
   $(".tweet-post").on('submit', function(event) {
     event.preventDefault();  // prevents traditional POST request
-    console.log("clicked! Performing AJAX call", event);
-    $(".err-msg").slideUp(500);
+    $(".err-msg").slideUp(200);
     const postBody = $(this).serialize();
-    console.log(postBody);
     if (isTweetValid(postBody)) {
     //AJAX request
       $.ajax({

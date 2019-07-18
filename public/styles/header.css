@@ -1,22 +1,75 @@
 header.main-header {
-  margin-top: 115px; /* Find a better way to do this*/
-  margin-bottom: 20px;
-  height: 400px;
-  width: 100%;
+  margin-top: 200px; /* Find a better way to do this*/
+  margin-left: 40px;
+  margin-right: 20px;
+  height: 350px;
+  width: 40%;
   order: 1; /*for flexbox col flex direction*/
   z-index: -1;
   background-color: #e6d814;
   background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
 }
 
+img {
+  display:block;
+  margin: 0 auto;
+}
+
 .profile-photo {
   position: relative;
-  width: 270px;
+  display: block;
+  max-width: 270px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 
 h2 {
   text-align: center;
+  margin: 0;
 }
+
+/* FOR RESPONSIVE DESIGN*/
+
+@media (max-width: 1024px) and (min-width: 450px) {
+  header.main-header {
+    width:100%; 
+    margin-top: 115px;
+    margin-left: 0;
+
+  }
+}
+
+@media (max-width: 449px) {
+  header.main-header {
+    display: block;
+    height: 120px;
+    width:100%;
+    margin-top: 105px;
+    margin-left: 0;
+  }
+   header, img {
+    width: 70%;
+  }
+
+  .usr-profile-photo {
+    min-width: 90px;
+  }
+  .inner-header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .header-usr-name {
+    margin-top: 50px;
+  }
+  .prfl-pht-container{
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  h2 {
+    font-size: 120%;
+  }
+}
+

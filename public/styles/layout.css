@@ -20,18 +20,59 @@ body {
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 main {
+  margin-top: 140px;
   order: 10; /*for flexbox col flex direction*/
-  width: 90%;
   margin: 0 auto;
+  width: 60%;
 }
 
+.body-container {
+  margin-top: 200px;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+ @media (max-width: 1024px) {
+  main {
+    width: 100%;
+  }
+  body {
+    flex-direction: column;
+  }
+  .body-container {
+    margin-top: 0px; 
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 450px) {
+  main {
+    width: 100%;
+  }
+  body {
+    flex-direction: column;
+  }
+  .body-container {
+    margin-top: 0px; 
+  }
+}
+
+@media (max-width: 450px) {
+  main {
+    width: 100%;
+  }
+  body {
+    flex-direction: column;
+  }
+  .body-container {
+    margin-top: 10px; 
+    margin-left: 5px;
+    width: 100%;
+  }
+}
 
 

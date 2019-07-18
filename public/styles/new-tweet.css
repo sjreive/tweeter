@@ -3,7 +3,7 @@ section.new-tweet{
   width: 90%;
   margin: 0 auto;
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 140px;
   display: none;
 }
 
@@ -35,4 +35,10 @@ section.new-tweet{
   font-size: 18px;
   margin-bottom: 10px;
   display: none;
+}
+
+@media (max-width: 1024px) {
+  section.new-tweet {
+   margin-top: 25px;
+  }
 }
