@@ -25,7 +25,9 @@ $(document).ready(function() {
       });
   };
 
-  loadTweets();
+  // Load tweets in database upon page load
+  loadTweets(); 
+  // Get time stamp to calculate tweet times 
   const timeNow = new Date();
 
   //Escape function to prevent cross-site scripting
@@ -51,8 +53,6 @@ $(document).ready(function() {
     }
     return timeString;
   };
-  
-  
   
   // Function to create Tweet Element
   const createTweetElement = function(tweet) {
@@ -92,8 +92,6 @@ $(document).ready(function() {
     });
   };
 
-  
-  
   //Function to validate user tweet input
   const isTweetValid = function(tweet) {
     
@@ -110,26 +108,38 @@ $(document).ready(function() {
     }
   };
 
-  //CLICK HANDLER FOR NAV BAR TOGGLE
+  // Click Handler to show/hide new tweet form
   $(".toggle").click(function() {
     $(".new-tweet").slideToggle(1000);
   });
   
+  // Scroll handler for "scroll back to top button"
+  const $window = $(window);
+  $window.scroll(function () {
+    const $scrollButton = $(".scroll-up-button");
+    const $navButton = $(".toggle");
+    if ($window.scrollTop() > 50) {
+      $scrollButton.css('display', 'block');
+      $navButton.css('display', 'none');
+    } else {
+      $scrollButton.css('display', 'none');
+      $navButton.css('display', 'block');
+    }
+  });
 
-  // jQuery used to change visibility of user handler during when hovering over a tweet.
-  $(".tweet").hover(function() {
-      $(this).find(".user-handle").css("visibility","visible");
-    }, function() {
-      $(this).find(".user-handle").css("visibility","hidden");
-    });
+  // Click Handler for "scroll back to top button"
+  $(".scroll-up-button").click(function() {
+    document.documentElement.scrollTop = 0;
+  });
 
-  // POST REQUEST TO SUBMIT TWEETS
+  // AJAX Post Request to Submit new tweets
   $(".tweet-post").on('submit', function(event) {
-    event.preventDefault();  // prevents traditional POST request
+    // prevents traditional POST request action
+    event.preventDefault();  
     $(".err-msg").slideUp(200);
     const postBody = $(this).serialize();
     if (isTweetValid(postBody)) {
-    //AJAX request
+    // AJAX Request
       $.ajax({
         type: "POST",
         url: "/tweets",
@@ -137,19 +147,15 @@ $(document).ready(function() {
         data: postBody
       })
         .done(function(data) {
+          $(".tweet-form").val("");
           loadTweets(data);
         })
         .fail(function(XHR) {
           console.log('Fail!', XHR);
           alert('error! AJAX REQUEST UNSUCCESSFUL');
         });
+        
     }
   });
-
-
-
-
-
-
 });
 

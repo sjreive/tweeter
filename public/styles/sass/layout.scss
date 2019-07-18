@@ -38,6 +38,19 @@ main {
 .body-container {
   margin-top: 200px;
 }
+
+.scroll-up button {
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  height: 100px;
+  width: 100px;
+}
+.fa-arrow-circle-up {
+  color: red;
+  height: 100px;
+  width: 100px;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

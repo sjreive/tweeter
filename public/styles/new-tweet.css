@@ -25,6 +25,7 @@ section.new-tweet {
 
 .button {
   background-color: navy;
+  color: #f4f1ec; 
 }
 
 .err-msg {

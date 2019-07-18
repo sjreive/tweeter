@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -13,19 +14,19 @@ html {
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: row;
 }
 
 main {
   margin-top: 140px;
-  order: 10; /*for flexbox col flex direction*/
+  order: 10;
+  /*for flexbox col flex direction*/
   margin: 0 auto;
   width: 60%;
 }
@@ -33,46 +34,70 @@ main {
 .body-container {
   margin-top: 200px;
 }
+
+.scroll-up button {
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  height: 100px;
+  width: 100px;
+  float: right;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+  position: fixed; 
+  bottom: 20px; 
+  right: 30px; 
+}
+
+.scroll-up i.fa-arrow-circle-up {
+  color: red;
+  font-size: 80px;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-
- @media (max-width: 1024px) {
+@media (max-width: 1024px) {
   main {
     width: 100%;
   }
+
   body {
     flex-direction: column;
   }
+
   .body-container {
-    margin-top: 0px; 
+    margin-top: 0px;
   }
 }
-
 @media (max-width: 1024px) and (min-width: 450px) {
   main {
     width: 100%;
   }
+
   body {
     flex-direction: column;
   }
+
   .body-container {
-    margin-top: 0px; 
+    margin-top: 0px;
   }
 }
-
 @media (max-width: 450px) {
   main {
     width: 100%;
   }
+
   body {
     flex-direction: column;
   }
+
   .body-container {
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-left: 5px;
     width: 100%;
   }
 }
 
-
+/*# sourceMappingURL=layout.css.map */
