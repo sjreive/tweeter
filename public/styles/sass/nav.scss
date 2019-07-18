@@ -1,0 +1,88 @@
+$primary-font: 'Bungee', cursive;
+$primary-color: navy;
+$secondary-color: #f4f1ec;
+
+
+nav {
+  height: 120px;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  background-color: $primary-color;
+  top: 0px;
+  order: 0; 
+ }
+
+ .inner-nav {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+}
+ .nav-element {
+  color: $secondary-color;
+  flex-basis: auto;
+  margin: 1.5em;
+ }
+
+ #title {
+  font-family: $primary-font;
+ }
+
+ nav button {
+  color: #e6d814;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  height: 25px;
+  width: 25px;
+ }
+
+ nav button:hover {
+  cursor: pointer; 
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+  cursor: pointer; 
+  animation-play-state: running;
+ }
+ 
+ .toggle-arrow {
+  height: 25px;
+  width: 25px;
+  margin: 0 auto;
+ }
+ 
+ /* Animation for nav button */
+@keyframes bounce {
+  10% {transform: translate(0px,2px); }
+  20% {transform: translate(0px,4px); }
+  30% {transform: translate(0px,6px); }
+  40% {transform: translate(0px,8px); }
+  50% {transform: translate(0px,10px); }
+  60% {transform: translate(0px,-8px); }
+  70% {transform: translate(0px,-6px); }
+  80% {transform: translate(0px,-4px); }
+  90% {transform: translate(0px,-2px); }
+  100% {transform: translate(0px,0px); }
+}
+
+
+@media (max-width: 450px) {
+  .inner-nav {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .nav-element {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin: 0 auto;
+  }
+}
+
+
+
+ 
+

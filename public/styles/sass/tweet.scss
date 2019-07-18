@@ -1,3 +1,8 @@
+$primary-font: 'Bungee', cursive;
+$primary-color: navy;
+$secondary-color: #f4f1ec;
+
+
 article {
   width: 90%;
   border-style: solid;
@@ -27,7 +32,7 @@ article.tweet header {
 }
 
 .user-handle {
-  color: #9db1f3;
+  color: rgb(157, 177, 243);
   font-weight: 500;
   margin-right: 10px;
   visibility: hidden;
@@ -41,7 +46,7 @@ article.tweet header {
 .tweet-profile-photo {
   height: 40px;
   width: 40px;
-  margin-right: 10px;
+  margin-right: 10px;  
   margin-top: 10px;
 }
 
@@ -50,6 +55,7 @@ hr {
   height: 3px;
   background-color: #333;
   margin-bottom: 0px;
+
 }
 
 .tweet-content {
@@ -80,28 +86,25 @@ i {
 }
 
 /* FOR RESPONSIVE DESIGN */
+
 @media (max-width: 1024px) and (min-width: 450px) {
   #tweets-container {
-    margin-top: 20px;
+   margin-top: 20px;
   }
 }
+
 @media (max-width: 450px) {
   .tweet-content {
     font-size: 12pt;
   }
-
   article.tweet header {
     font-size: 14pt;
   }
-
   .tweet-profile-photo {
     max-width: 40px;
   }
-
   .tweet {
     padding-top: 1px;
     padding-bottom: 1px;
   }
 }
-
-/*# sourceMappingURL=tweet.css.map */

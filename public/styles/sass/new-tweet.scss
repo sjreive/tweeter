@@ -1,4 +1,10 @@
-section.new-tweet {
+$primary-font: 'Bungee', cursive;
+$primary-color: navy;
+$secondary-color: #f4f1ec;
+
+
+
+section.new-tweet{
   width: 90%;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -9,22 +15,23 @@ section.new-tweet {
 .tweet-form {
   width: 100%;
   border: none;
-  border-bottom: 3px solid navy;
-  background-color: #f4f1ec;
+  border-bottom: 3px solid $primary-color;
+  background-color: $secondary-color; 
 }
 
-.tweet-submit {
+
+.tweet-submit{
   margin-top: 15px;
   width: 100%;
   display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
-  font-family: "Bungee", cursive;
+  font-family: $primary-font;
   font-size: 18px;
 }
 
 .button {
-  background-color: navy;
+  background-color: $primary-color;
 }
 
 .err-msg {
@@ -36,8 +43,6 @@ section.new-tweet {
 
 @media (max-width: 1024px) {
   section.new-tweet {
-    margin-top: 25px;
+   margin-top: 25px;
   }
 }
-
-/*# sourceMappingURL=new-tweet.css.map */

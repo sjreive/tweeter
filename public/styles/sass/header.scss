@@ -1,19 +1,23 @@
+$primary-font: 'Bungee', cursive;
+$primary-color: navy;
+$secondary-color: #f4f1ec;
+$tertiary-color: #e6d814;
+$secondary-font: 'Source Sans Pro', sans-serif;
+
 header.main-header {
-  margin-top: 200px;
-  /* Find a better way to do this*/
+  margin-top: 200px; /* Find a better way to do this*/
   margin-left: 40px;
   margin-right: 20px;
   height: 350px;
   width: 40%;
-  order: 1;
-  /*for flexbox col flex direction*/
+  order: 1; /*for flexbox col flex direction*/
   z-index: -1;
-  background-color: #e6d814;
+  background-color: $tertiary-color;
   background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
 }
 
 img {
-  display: block;
+  display:block;
   margin: 0 auto;
 }
 
@@ -25,36 +29,38 @@ img {
   margin-top: 20px;
 }
 
+
 h2 {
   text-align: center;
   margin: 0;
 }
 
 /* FOR RESPONSIVE DESIGN*/
+
 @media (max-width: 1024px) and (min-width: 450px) {
   header.main-header {
-    width: 100%;
+    width:100%; 
     margin-top: 115px;
     margin-left: 0;
+
   }
 }
+
 @media (max-width: 449px) {
   header.main-header {
     display: block;
     height: 120px;
-    width: 100%;
+    width:100%;
     margin-top: 105px;
     margin-left: 0;
   }
-
-  header, img {
+   header, img {
     width: 70%;
   }
 
   .usr-profile-photo {
     min-width: 90px;
   }
-
   .inner-header {
     display: flex;
     flex-direction: row;
@@ -63,16 +69,13 @@ h2 {
   .header-usr-name {
     margin-top: 50px;
   }
-
-  .prfl-pht-container {
+  .prfl-pht-container{
     width: 30%;
     margin-left: 5%;
     margin-right: 5%;
   }
-
   h2 {
     font-size: 120%;
   }
 }
 
-/*# sourceMappingURL=header.css.map */
