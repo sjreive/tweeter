@@ -26,8 +26,8 @@ $(document).ready(function() {
   };
 
   // Load tweets in database upon page load
-  loadTweets(); 
-  // Get time stamp to calculate tweet times 
+  loadTweets();
+  // Get time stamp to calculate tweet times
   const timeNow = new Date();
 
   //Escape function to prevent cross-site scripting
@@ -99,7 +99,7 @@ $(document).ready(function() {
     if (tweet === "text=") {
       const errMsg = "Error! Tweet field cannot be empty.";
       returnErrMessage(errMsg);
-    // Check if tweet field is too long (145 = 140 chars allowed + "text=");   
+    // Check if tweet field is too long (145 = 140 chars allowed + "text=");
     } else if (tweet.length > 145) {
       const errMsg = "Error! Your Tweet exceeds the character limit.";
       returnErrMessage(errMsg);
@@ -135,7 +135,7 @@ $(document).ready(function() {
   // AJAX Post Request to Submit new tweets
   $(".tweet-post").on('submit', function(event) {
     // prevents traditional POST request action
-    event.preventDefault();  
+    event.preventDefault();
     $(".err-msg").slideUp(200);
     const postBody = $(this).serialize();
     if (isTweetValid(postBody)) {
@@ -148,6 +148,7 @@ $(document).ready(function() {
       })
         .done(function(data) {
           $(".tweet-form").val("");
+          $(".counter").text("140");
           loadTweets(data);
         })
         .fail(function(XHR) {
